@@ -1,0 +1,9 @@
+{
+	"version": "1.0.0",
+	"name": "ASP.NET",
+	"devDependencies": {
+		"angular-chart.js": "^1.1.1",
+		"bootstrap": "^3.3.7",
+		"jquery": "^3.3.1"
+	}
+}
