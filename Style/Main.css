@@ -1,0 +1,11 @@
+#pageHeader
+{
+	width : 100%; 
+	height: 80px;
+	background-color :SteelBlue;
+	text-align:left;
+	color: white;
+	padding-top : 5px;
+	padding-left: 15px;
+	font-family:"comic sans MS";
+}

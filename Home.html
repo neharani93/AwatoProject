@@ -1,9 +1,8 @@
 <!doctype html>
 <html ng-app="app">
 <head>
-    <!-- Reference AngularJS and D3.js -->
+    <!-- Reference AngularJS -->
     <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/d3/d3.min.js"></script>
     <!-- Reference angular chart -->
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
@@ -13,26 +12,33 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Angular js Controllers-->
-    <script src="scripts/chart.js"></script> 
+	<link rel="stylesheet" href="Style\Main.css">
+    <script src="scripts/Main.js"></script> 
     <script src="scripts/controllers/ValueLostByAirline.js"></script> 
     <script src="scripts/controllers/ClaimsByAirport.js"></script> 
+	
 
 </head>
 <body>
     <div class="container">
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#value-lost-airline">Value Lost by AirLine</a></li>
+	</br></br>
+	<div id="pageHeader">
+		<h1>Neha Rani's Awato Project</h1>
+	</div>
+	</br></br>
+        <ul class="nav nav-pills">
+            <li class="active tabs"><a data-toggle="tab" href="#value-lost-airline">Value Lost by AirLine</a></li>
             <li><a data-toggle="tab" href="#claims-by-airport">Avg Claims by Airport</a></li>
         </ul>
-
-        <div class="tab-content">
-            <div id="value-lost-airline" class="tab-pane fade in active" ng-controller="valueLostByAirlineCtrl">
+		<br/><br/>
+        <div class="tab-content row">
+            <div id="value-lost-airline" class="tab-pane fade in active col-lg-8" ng-controller="valueLostByAirlineCtrl">
                 <canvas id="line" class="chart chart-line" chart-data="data"
                         chart-labels="labels" chart-series="series" chart-options="options"
                         chart-dataset-override="datasetOverride" chart-click="onClick">
                 </canvas>
             </div>
-            <div id="claims-by-airport" class="tab-pane fade"ng-controller="claimsByAirportCtrl">
+            <div id="claims-by-airport row" class="tab-pane fade col-lg-8"ng-controller="claimsByAirportCtrl">
                 <canvas id="bar" class="chart chart-bar"
                         chart-data="data" chart-labels="labels" chart-series="series">
                 </canvas>
