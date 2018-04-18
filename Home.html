@@ -3,7 +3,6 @@
 <head>
     <!-- Reference AngularJS -->
     <script src="node_modules/angular/angular.min.js"></script>
-	<script src="node_modules/d3/d3.min.js"></script>
     <!-- Reference angular chart -->
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
@@ -11,14 +10,16 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-
+	<!-- reference for datepicker control-->
+	<script src="node_modules/angularjs-datepicker/dist/angular-datepicker.js"></script>
+	<link href="node_modules/angularjs-datepicker/dist/angular-datepicker.css" rel="stylesheet" type="text/css" />
     <!-- Angular js Controllers-->
 	<link rel="stylesheet" href="Style\Main.css">
     <script src="scripts/Main.js"></script> 
     <script src="scripts/controllers/ValueLostByAirline.js"></script> 
-    <script src="scripts/controllers/ClaimsByAirport.js"></script>    	
+    <script src="scripts/controllers/ClaimsByAirport.js"></script>	
+	
 </head>
-
 <body>
     <div class="container">
 		<br/><br/>
@@ -28,7 +29,7 @@
         <br/><br/>
         <ul class="nav nav-pills">
             <li class="active"><a data-toggle="pill" href="#value-lost-airline">Value Lost by AirLine</a></li>
-            <li><a data-toggle="pill" href="#claims-by-airport">Avg Claims by Airport</a></li>
+            <li><a data-toggle="pill" href="#claims-by-airport">Avg Claims by Airport</a></li>			
         </ul>
 		<br/><br/>
         <div class="tab-content">
@@ -43,6 +44,7 @@
                         chart-data="data" chart-labels="labels" chart-series="series">
                 </canvas>
             </div>
+			
 		</div>
 	</div>
 </body>

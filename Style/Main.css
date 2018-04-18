@@ -1,11 +1,26 @@
 #pageHeader
 {
 	width : 100%; 
-	height: 80px;
+	height: 125px;
 	background-color :SteelBlue;
 	text-align:left;
 	color: white;
 	padding-top : 5px;
 	padding-left: 15px;
 	font-family:"comic sans MS";
+}
+.menuLink:link, .menuLink:visited {
+   
+    color: white;
+    float: right;
+    font-family:"comic sans MS";
+    display: inline-block;
+	padding: 10px 20px;
+	font-size:20px;
+	 text-decoration: none;
+}
+
+
+.menuLink:hover, .menuLink:active {
+    background-color: gray;
 }

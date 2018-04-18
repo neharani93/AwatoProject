@@ -19,7 +19,12 @@ app.controller('valueLostByAirlineCtrl', function ($scope) {
                   position: 'left'
               }              
             ]
-        }
+        },
+		legend: {
+		  display: true,
+		  position: 'right'
+		}
+		
     };
 
     activate();
@@ -66,7 +71,23 @@ app.controller('valueLostByAirlineCtrl', function ($scope) {
             }
             amtLostByAirlineByMonth.push(currAirlineData);
         }
+		
+		//Calculation of Average value lost per month across all airlines
+		$scope.series.push("Average Loss");
+        var avgLossByAirlineByMonth = Array.apply(null, Array($scope.labels.length)).map(Number.prototype.valueOf, 0);
+        for (var i = 0; i < amtLostByAirlineByMonth.length; i++)
+        {
+            for (var j = 0; j < $scope.labels.length; j++)
+            {
+                avgLossByAirlineByMonth[j] += amtLostByAirlineByMonth[i][j];
+                if (i == amtLostByAirlineByMonth.length - 1) //Average it out by length when it reaches maximum
+                {
+                    avgLossByAirlineByMonth[j] = avgLossByAirlineByMonth[j] / amtLostByAirlineByMonth.length;
+                }
+            }
+        }
+        amtLostByAirlineByMonth.push(avgLossByAirlineByMonth); //Add the aveage dataset to the baseArray
 
-        $scope.data = amtLostByAirlineByMonth;
+        $scope.data = amtLostByAirlineByMonth; 
     }
 });
