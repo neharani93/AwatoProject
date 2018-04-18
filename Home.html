@@ -18,6 +18,7 @@
     <script src="scripts/Main.js"></script> 
     <script src="scripts/controllers/ValueLostByAirline.js"></script> 
     <script src="scripts/controllers/ClaimsByAirport.js"></script>	
+	<script src="scripts/controllers/AddClaim.js"></script>	
 	
 </head>
 <body>
@@ -29,7 +30,8 @@
         <br/><br/>
         <ul class="nav nav-pills">
             <li class="active"><a data-toggle="pill" href="#value-lost-airline">Value Lost by AirLine</a></li>
-            <li><a data-toggle="pill" href="#claims-by-airport">Avg Claims by Airport</a></li>			
+            <li><a data-toggle="pill" href="#claims-by-airport">Avg Claims by Airport</a></li>	
+			<li><a data-toggle="pill" href="#add-Claim">Add Claims</a></li>	
         </ul>
 		<br/><br/>
         <div class="tab-content">
@@ -52,7 +54,50 @@
 					&nbsp;&nbsp;<input type="checkbox" ng-model="years[year]" ng-change="onFiltersChange()" /> {{year}}</label>                
 				</div>
             </div>
-			
+			<div id="add-Claim" class="tab-pane fade" ng-controller="addClaimCtrl">
+				<form>
+					<div class="form-group">
+					  <label class="control-label col-lg-2" for="Airline_Name">Airline Name : </label>
+					  <div class="col-lg-4">
+						<input type="text" class="form-control" id="airlineName" placeholder="Enter AirLine Name" ng-model="airlineName">
+					  </div>
+					</div>
+					<br/><br/></br>
+					<div class="form-group">
+					  <label class="control-label col-lg-2" for="Airport_Code">Airport Code : </label>
+					  <div class="col-lg-4">
+						<input type="text" class="form-control" id="airportCode" placeholder="Enter Airport Code" ng-model="airportCode">
+					  </div>
+					</div>
+					</br><br/>
+					<div class="form-group">
+					  <label class="control-label col-lg-2" for="Close_Amount">Close Amount : </label>
+					  <div class="col-lg-4">
+						<input type="text" class="form-control" id="closeAmount" placeholder="Enter Close Amount" ng-model="closeAmount">
+					  </div>
+					</div></br></br>
+					<div class="form-group">
+					  <label class="control-label col-lg-2" for="Date_Received">Date Received : </label>
+					  <div class="col-lg-4">
+						<datepicker date-format="dd-MMM-yy" selector="form-control">
+							<div class="input-group">
+								<input class="form-control" placeholder="Choose a date" ng-model="dateReceived"/>
+								<span class="input-group-addon" style="cursor: pointer">
+								<i class="fa fa-lg fa-calendar"></i>
+								</span>
+							</div>
+						</datepicker>
+					  </div>
+					</div>
+					<br/><br/>
+					<div class="form-group">        
+					  <div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default" ng-click = "submitClaim()">Submit</button>
+					  </div>
+					</div>
+				</form>
+			</div>
+					
 		</div>
 	</div>
 </body>

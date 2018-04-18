@@ -2,7 +2,7 @@ app.controller('claimsByAirportCtrl', function ($scope) {
     //Hardcoding these, there are ton of them. Not parsing data to obtain these, coz these might be coming form differnt table in the db and 
 	//we do not have to parse such a big dataset always to obtain these.
 	$scope.airports = {EWR: true, JFK: true, SFO: true, HOU: true};	
-	$scope.years = {2010: true, 2011:false, 2012:true, 2013 : false};
+	$scope.years = {2010: true, 2011:true, 2012:true, 2013 : true};
 	
 	$scope.onFiltersChange = function()
 	{
@@ -14,6 +14,16 @@ app.controller('claimsByAirportCtrl', function ($scope) {
             display: true           
         }
     };
+	
+	$scope.$on('update-claimsByAirport', function(event, args) {
+		if(!$scope.airports.hasOwnProperty(args.airportCode)){
+			$scope.airports[args.airportCode]= true;
+		}
+		if(!$scope.years.hasOwnProperty(args.year)){
+			$scope.years[args.year] = true;
+		}		
+		renderChart();
+	});
 
    renderChart();
 

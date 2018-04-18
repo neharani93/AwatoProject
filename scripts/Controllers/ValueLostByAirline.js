@@ -1,8 +1,4 @@
-app.controller('valueLostByAirlineCtrl', function ($scope) {    
-    $scope.labels = [];
-    $scope.series = [];
-    $scope.data = [];
-
+app.controller('valueLostByAirlineCtrl', function ($scope) {   
     $scope.onClick = function (points, evt) {
         console.log(points, evt);
     };
@@ -26,11 +22,20 @@ app.controller('valueLostByAirlineCtrl', function ($scope) {
 		}
 		
     };
+	
+	$scope.$on('update-valueLostByAirline', function(event, args) {
+		renderChart();		
+	});
 
-    activate();
 
-    function activate()
+    renderChart();
+
+    function renderChart()
     {       
+		$scope.labels = [];
+		$scope.series = [];
+		$scope.data = [];
+		
         for (var i = 0; i < claimsData.length; i++)
         {
             //Get Airlines Names - series
