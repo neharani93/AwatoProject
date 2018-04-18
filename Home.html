@@ -34,15 +34,23 @@
 		<br/><br/>
         <div class="tab-content">
             <div id="value-lost-airline" class="tab-pane fade in active" ng-controller="valueLostByAirlineCtrl">
-				<canvas id="line" class="chart chart-line" chart-data="data"
-				chart-labels="labels" chart-series="series" chart-options="options"
+				<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" 
 				chart-dataset-override="datasetOverride" chart-click="onClick">
 				</canvas>
             </div>
             <div id="claims-by-airport" class="tab-pane fade" ng-controller="claimsByAirportCtrl">
-                <canvas id="bar" class="chart chart-bar"
-                        chart-data="data" chart-labels="labels" chart-series="series">
+                <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options">
                 </canvas>
+				<div> 
+					<span>Airports:</span>
+					<label ng-repeat="(airportCode,enabled) in airports">
+					&nbsp;&nbsp;<input type="checkbox" ng-model="airports[airportCode]" ng-change="onFiltersChange()" /> {{airportCode}}</label>                
+				</div>
+				<div> 
+					<span>Years:</span>
+					<label ng-repeat="(year, enabled) in years">
+					&nbsp;&nbsp;<input type="checkbox" ng-model="years[year]" ng-change="onFiltersChange()" /> {{year}}</label>                
+				</div>
             </div>
 			
 		</div>
